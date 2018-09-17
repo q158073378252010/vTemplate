@@ -8,11 +8,11 @@
   //注"policy"字段需要core≥3.1
   "policy": {
     "levels": {
-      "0": {
-        "uplinkOnly": 0,
-        "downlinkOnly": 0,
-        "connIdle": 150,
-        "handshake": 4
+      "10": {
+        //"uplinkOnly": 0,
+        //"downlinkOnly": 0,
+        "connIdle": 300,
+        "handshake": 15
       }
     }
   },
@@ -26,7 +26,7 @@
         {
           "id": "7f43b638-dc47-11e7-9296-cec278b6b50a",
           //"level"字段与"policy"字段中的"levels"字段中的对应，默认值:0,注：需要core≥3.1
-          "level": 0, 
+          "level": 10, 
           "alterId": 64
         }
       ]
