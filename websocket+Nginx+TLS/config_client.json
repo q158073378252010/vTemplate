@@ -19,7 +19,7 @@
   "outboundDetour": [
     {
       "mux": {
-        "concurrency": 6,
+        "concurrency": 16,
         "enabled": true
       },
       "protocol": "vmess",
@@ -30,8 +30,8 @@
               {
                 "id": "97c0ec9c-dc4e-11e7-9296-cec278b6b50a",
                 //"level"字段与"policy"字段中的"levels"字段中的对应，默认值:0,注：需要core≥3.1
-                "level": 0,
-                "alterId": 0,
+                "level": 10,
+                "alterId": 64,
                 "security": "aes-128-cfb"
               }
             ],
@@ -61,12 +61,12 @@
       "tag": "block"
     }
   ],
-  "dns": {
-    "servers": [
-      "8.8.8.8",
-      "8.8.4.4"
-    ]
-  },
+  //"dns": {
+  //  "servers": [
+  //    "8.8.8.8",
+  //    "8.8.4.4"
+  //  ]
+  //},
   "inbound": {
     "port": 1087,
     "listen": "127.0.0.1",
@@ -78,11 +78,11 @@
   // 注"policy"字段需要core≥3.1
   "policy": {
     "levels": {
-      "0": {
-        "uplinkOnly": 0,
-        "downlinkOnly": 0,
-        "connIdle": 150,
-        "handshake": 4
+      "10": {
+        //"uplinkOnly": 0,
+        //"downlinkOnly": 0,
+        "connIdle": 300,
+        "handshake": 15
       }
     }
   },
@@ -138,7 +138,8 @@
           "outboundTag": "direct"
         }
       ],
-      "domainStrategy": "IPIfNonMatch"
+      //AsIs | IPIfNonMatch | IPOnDemand  # 区别 https://www.v2ray.com/chapter_02/03_routing.html
+      "domainStrategy": "AsIs"
     },
     "strategy": "rules"
   }
